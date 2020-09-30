@@ -1,0 +1,30 @@
+body {
+
+    background-image: url("../../assets/images/bar.jpg");
+    background-size: cover;
+    font-family: 'Satisfy', cursive;
+    background-color: black;
+    opacity: .7;
+
+}
+
+#title {
+    text-align: center;
+    font-size: 165px;
+    color: red;
+    font-family: 'Satisfy', cursive;
+
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: black;
+    color: red;
+    font-size: 30px
+}
+
+input::placeholder {
+    text-align: center;
+    color: red;
+    font-size: 20px
+}
