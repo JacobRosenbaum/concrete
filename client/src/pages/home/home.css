@@ -27,6 +27,60 @@ input{
 }
 input::placeholder {
     text-align: center;
-    color: red;
+    color: black;
     font-size: 20px
 }
+ /* .flex-container{
+    display: flex;
+    flex-direction: row;
+}  */
+li{
+    float: left;
+    overflow-x: scroll;
+    margin-right: 15px;
+    opacity: 1 !important;
+    
+}
+li a{
+    display: block;
+    scroll-behavior: smooth;
+    opacity: 1 !important;
+
+}
+#drink{
+    background-color: red;
+    color: black;
+    padding: 3px
+}
+
+#hide{
+    display: none
+}
+/* .faded{
+    opacity: .5;
+    text-align: center;
+    font-size: 165px;
+    color: red;
+    font-family: 'Satisfy', cursive;
+    
+} */
+.card{
+    width: 10rem;
+    text-align: center;
+    opacity: 1 !important;
+}
+.far{
+    font-size: 80px;
+    color: red !important;
+    position: relative;
+    top: 80px
+}
+.far:hover{
+    cursor: pointer;
+    color: white !important
+}
+#lastFive{
+    position: relative;
+    right: 100px
+}
+

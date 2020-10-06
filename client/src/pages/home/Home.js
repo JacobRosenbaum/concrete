@@ -5,15 +5,30 @@ import API from "../../utils/API"
 function Home() {
 
         const [ingredient, setIngredient] = useState();
-        const [drink, setDrink] = useState()
+        const [beverages, setBeverages] = useState();
+        const [drink, setDrink] = useState();
+        const [five, showFive] = useState(true);
+        const [ten, showTen] = useState(false)
+
 
         const handleFormSubmit = e => {
                 console.log(ingredient)
                 e.preventDefault();
-                API.getDrink(ingredient)
+                API.getIngredient(ingredient)
                         .then(res => {
-                                setDrink(res.data.drinks);
-                                console.log(res.data.drinks)
+                                setBeverages(res.data.drinks);
+                                console.log(res.data.drinks);
+                        })
+                        .catch(err => console.log(err));
+        };
+        const handleButtonSubmit = e => {
+                console.log(drink)
+                e.preventDefault();
+                API.getDrink(drink)
+                        .then(res => {
+                                setDrink(res.data.drinks.strDrink);
+                                console.log(res.data.drinks.strDrink);
+
                         })
                         .catch(err => console.log(err));
         };
@@ -21,9 +36,11 @@ function Home() {
         return (
                 <div style={{ backgroundColor: "black" }}>
                         <div class="container">
+                               
                                 <div id="title">
                                         sip
                                 </div>
+                               
                                 <div class="jumbotron">
                                         Have liquor that you don't know what to do with?
                                         <div>
@@ -34,21 +51,28 @@ function Home() {
                                                         onChange={e => setIngredient(e.target.value)}
                                                         >
                                                         </input>
-                                                                <br />
-                                                                <br />
+                                                                
                                                         <button
-                                                        style={{ backgroundColor: "red", color: "black" }}
+                                                        style={{ backgroundColor: "red", color: "black", marginLeft: '30px' }}
                                                         >
                                                         let's sip
                                                         </button>
                                                 </form>
                                         </div>
-                                </div>
-                        </div>
-                        {drink? (
-                            <div style={{ background: 'none' }}>
-                                {drink.map(result =>
-                                    <li data-aos="fade-up"
+                                
+                                        </div>
+                            {
+                                    five ? 
+
+                                    <div>
+                            
+                        {beverages ? (
+                               
+                            <div style={{ backgroundColor: 'black', textAlign:"center", position:'relative', bottom: '100px'}}>
+                                    
+                                {beverages.slice(0,5).map(result =>
+                                    <li
+                                    data-aos="fade-left"
                                         // data-aos-offset="200"
                                         // data-aos-delay="50"
                                         // data-aos-duration="1000"
@@ -56,23 +80,124 @@ function Home() {
                                         // data-aos-mirror="true"
                                         data-aos-once="false"
                                         // data-aos-anchor="#anchor"
-                                        data-aos-anchor-placement="top-bottom" class='show' key={result.id} >
-                                        <div className="card" style={{ border: 'none', marginTop: '40px', background: 'none' }}>
-                                            <div className="row">
-                                                <div id="titleAuthor" className="col-md-6">
-                                                    <b id="title" style={{ fontSize: '20px' }}> {result.strDrink}</b>
-                                                </div>
-                                             
+                                        data-aos-anchor-placement="top-bottom" class='show' key={result.id} 
+                                        >
+                                        <div className="card" >
+                                            <div className="flex-container"> 
+                                            <img class="card-img-top" src={result.strDrinkThumb} alt="Card image cap"></img>
+                                                <h5 className = "card-title" id="drink"
+                                                onClick={handleButtonSubmit}
+                                                >
+                                                    <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
+                                                </h5>  
+                                                
                                             </div>
-                                           
                                         </div>
                                     </li>
+                                   
+                                    
+                                    
+
                                 )
+                               
                                 }
+                                 <i id = "nextTen" 
+                                   onClick={() => {
+                                   
+                                       showFive(false);
+                                       showTen(true)
+                                        ;
+                                    }}
+                                 
+                                 class="far fa-arrow-alt-circle-right"
+                                    
+                                    ></i>
                             </div>
                         ) : (
-                                <h3> </h3>
+                                <h1 id = "hide" style = {{color: 'red', textAlign: 'center'}}>
+                                       Sorry, we can't make a drink with that 
+                                 </h1>
                             )}
+
+                            </div> : null
+
+                            }
+                            {
+                                ten ? 
+
+                                <div>
+                                              <i id = "lastFive" 
+                             onClick={() => {
+                             
+                                 showFive(true);
+                                 showTen(false)
+                                  ;
+                              }}
+                           
+                           class="far fa-arrow-alt-circle-right"
+                              
+                              ></i> 
+                        
+                    {beverages ? (
+                       
+                           
+                        <div style={{ backgroundColor: 'black', textAlign:"center", position:'relative', bottom: '100px'}}>
+                                
+                            {beverages.slice(5,10).map(result =>
+                                <li
+                                data-aos="fade-left"
+                                    // data-aos-offset="200"
+                                    // data-aos-delay="50"
+                                    // data-aos-duration="1000"
+                                    data-aos-easing="ease-in-out-back"
+                                    // data-aos-mirror="true"
+                                    data-aos-once="false"
+                                    // data-aos-anchor="#anchor"
+                                    data-aos-anchor-placement="top-bottom" class='show' key={result.id} 
+                                    >
+                                    <div className="card" >
+                                        <div className="flex-container"> 
+                                        <img class="card-img-top" src={result.strDrinkThumb} alt="Card image cap"></img>
+                                            <h5 className = "card-title" id="drink"
+                                            onClick={handleButtonSubmit}
+                                            >
+                                                <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
+                                            </h5>  
+                                            
+                                        </div>
+                                    </div>
+                                </li>
+                               
+                                
+                                
+
+                            )
+                           
+                            }
+                              <i id = "nextTen" 
+                               onClick={() => {
+                               
+                                   showFive(false);
+                                   showTen(true)
+                                    ;
+                                }}
+                             
+                             class="far fa-arrow-alt-circle-right"
+                                
+                                ></i> 
+                        </div>
+                    ) : (
+                            <h1 id = "hide" style = {{color: 'red', textAlign: 'center'}}>
+                                   Sorry, we can't make a drink with that 
+                             </h1>
+                        )}
+
+                        </div> : null
+
+                        }
+                         
+                           
+                            </div>
                         
                         <div style={{ backgroundColor: "black" }}>
                                 blah
