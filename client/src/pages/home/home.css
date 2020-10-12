@@ -5,7 +5,6 @@ body {
     font-family: 'Satisfy', cursive;
     background-color: black;
     opacity: .7;
-
 }
 
 #title {
@@ -13,7 +12,6 @@ body {
     font-size: 165px;
     color: red;
     font-family: 'Satisfy', cursive;
-
 }
 
 .jumbotron {
@@ -56,31 +54,32 @@ li a{
 #hide{
     display: none
 }
-/* .faded{
-    opacity: .5;
-    text-align: center;
-    font-size: 165px;
-    color: red;
-    font-family: 'Satisfy', cursive;
-    
-} */
+
 .card{
     width: 10rem;
     text-align: center;
     opacity: 1 !important;
 }
-.far{
+.next{
     font-size: 80px;
     color: red !important;
     position: relative;
     top: 80px
 }
-.far:hover{
+.next:hover{
     cursor: pointer;
     color: white !important
 }
-#lastFive{
+.last{
+    font-size: 80px;
+    color: red !important;
     position: relative;
-    right: 100px
+    bottom: 50px;
+    right: 5px
+
+}
+.last:hover{
+    cursor: pointer;
+    color: white !important
 }
 

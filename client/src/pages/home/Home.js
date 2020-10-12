@@ -8,7 +8,8 @@ function Home() {
         const [beverages, setBeverages] = useState();
         const [drink, setDrink] = useState();
         const [five, showFive] = useState(true);
-        const [ten, showTen] = useState(false)
+        const [ten, showTen] = useState(false);
+        const [fifteen, showFifteen] = useState(false)
 
         const handleFormSubmit = e => {
                 console.log(ingredient)
@@ -38,10 +39,10 @@ function Home() {
                                 <div id="title">
                                         sip
                                 </div>
-
                                 <div class="jumbotron">
-                                        Have liquor that you don't know what to do with?
-                                        <div>
+                                        <div style={{ position: 'relative', bottom: '50px' }}>
+                                                Have liquor that you don't know what to do with?
+                                        <br />
                                                 <br />
                                                 <form onSubmit={handleFormSubmit} type="submit">
                                                         <input
@@ -58,75 +59,17 @@ function Home() {
                                                 </form>
                                         </div>
                                 </div>
-                                { five ?
+                                {five ?
                                         <div>
                                                 {beverages ? (
-                                                        <div style={{ backgroundColor: 'black', textAlign: "center", position: 'relative', bottom: '100px' }}>
+                                                        <div style={{ backgroundColor: 'black', textAlign: "center", position: 'absolute', bottom: '90px', left: '380px' }}>
                                                                 {beverages.slice(0, 5).map(result =>
                                                                         <li
                                                                                 data-aos="fade-left"
-                                                                                // data-aos-offset="200"
-                                                                                // data-aos-delay="50"
-                                                                                // data-aos-duration="1000"
                                                                                 data-aos-easing="ease-in-out-back"
-                                                                                // data-aos-mirror="true"
                                                                                 data-aos-once="false"
-                                                                                // data-aos-anchor="#anchor"
                                                                                 data-aos-anchor-placement="top-bottom" class='show' key={result.id}
-                                                                         >
-                                                                        <div className="card" >
-                                                                                <div className="flex-container">
-                                                                                        <img class="card-img-top" src={result.strDrinkThumb} alt="Card image cap"></img>
-                                                                                        <h5 className="card-title" id="drink"
-                                                                                                onClick={handleButtonSubmit}
-                                                                                        >
-                                                                                                <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
-                                                                                        </h5>
-                                                                                </div>
-                                                                        </div>
-                                                                        </li>
-                                                                        )
-                                                                        }
-                                                                        <i id="nextTen"
-                                                                                onClick={() => {
-                                                                                showFive(false);
-                                                                                showTen(true);
-                                                                                }}
-                                                                                class="far fa-arrow-alt-circle-right"
-                                                                        ></i>
-                                                                </div>
-                                                        ) : (
-                                                                <h1 id="hide" style={{ color: 'red', textAlign: 'center' }}>
-                                                                        Sorry, we can't make a drink with that
-                                                                </h1>
-                                                                )}
-                                                </div> : null
-
-                                }
-                                {ten ?
-                                        <div>
-                                                <i id="lastFive"
-                                                        onClick={() => {
-                                                                showFive(true);
-                                                                showTen(false);
-                                                                }}
-                                                                class="far fa-arrow-alt-circle-right"
-                                                        ></i>
-
-                                                        {beverages ? (
-                                                                <div style={{ backgroundColor: 'black', textAlign: "center" }}>
-                                                                        {beverages.slice(5, 10).map(result =>
-                                                                                <li
-                                                                                        data-aos="fade-left"
-                                                                                        // data-aos-offset="200"
-                                                                                        // data-aos-delay="50"
-                                                                                        // data-aos-duration="1000"
-                                                                                        data-aos-easing="ease-in-out-back"
-                                                                                        // data-aos-mirror="true"
-                                                                                        data-aos-once="false"
-                                                                                        // data-aos-anchor="#anchor"
-                                                                                        data-aos-anchor-placement="top-bottom" class='show' key={result.id}
-                                                                                >
+                                                                        >
                                                                                 <div className="card" >
                                                                                         <div className="flex-container">
                                                                                                 <img class="card-img-top" src={result.strDrinkThumb} alt="Card image cap"></img>
@@ -135,27 +78,125 @@ function Home() {
                                                                                                 >
                                                                                                         <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
                                                                                                 </h5>
-                                                                                                </div>
                                                                                         </div>
-                                                                                </li>
-                                                                        )
-                                                                        }
-                                                                        <i id="nextTen"
-                                                                                onClick={() => {
-                                                                                        showFive(false);
-                                                                                        showTen(true)
-                                                                                                ;
-                                                                                }}
-                                                                                class="far fa-arrow-alt-circle-right"
-                                                                        ></i>
-                                                                </div>
-                                                        ) : (
+                                                                                </div>
+                                                                        </li>
+                                                                )
+                                                                }
+                                                                <i
+                                                                        onClick={() => {
+                                                                                showFive(false);
+                                                                                showTen(true);
+                                                                        }}
+                                                                        className="far fa-arrow-alt-circle-right next"
+                                                                ></i>
+                                                        </div>
+                                                ) : (
                                                                 <h1 id="hide" style={{ color: 'red', textAlign: 'center' }}>
                                                                         Sorry, we can't make a drink with that
                                                                 </h1>
-                                                                )}
-                                                </div> : null
+                                                        )}
+                                        </div> : null
                                 }
+                                {ten ?
+                                        <div>
+                                                <i 
+                                                        onClick={() => {
+                                                                showFive(true);
+                                                                showTen(false);
+                                                        }}
+                                                        className="far fa-arrow-alt-circle-left last"
+                                                ></i>
+
+                                                {beverages ? (
+                                                        <div style={{ backgroundColor: 'black', textAlign: "center", position: 'absolute', bottom: '115px', left: '380px' }}>
+                                                                {beverages.slice(5, 10).map(result =>
+                                                                        <li
+                                                                                data-aos="fade-right"
+                                                                                data-aos-easing="ease-in-out-back"
+                                                                                data-aos-once="false"
+                                                                                data-aos-anchor-placement="top-bottom" class='show' key={result.id}
+                                                                        >
+                                                                                <div className="card" >
+                                                                                        <div className="flex-container">
+                                                                                                <img class="card-img-top" src={result.strDrinkThumb} alt="Card image cap"></img>
+                                                                                                <h5 className="card-title" id="drink"
+                                                                                                        onClick={handleButtonSubmit}
+                                                                                                >
+                                                                                                        <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
+                                                                                                </h5>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </li>
+                                                                )
+                                                                }
+                                                                <i
+                                                                        onClick={() => {
+                                                                                showTen(false);
+                                                                                showFifteen(true)
+                                                                                        ;
+                                                                        }}
+                                                                        className="far fa-arrow-alt-circle-right next"
+                                                                ></i>
+                                                        </div>
+                                                ) : (
+                                                                <h1 id="hide" style={{ color: 'red', textAlign: 'center' }}>
+                                                                        Sorry, we can't make a drink with that
+                                                                </h1>
+                                                        )}
+                                        
+                                        </div> : null
+                                }
+                                {fifteen ?
+                                        <div>
+                                                <i 
+                                                        onClick={() => {
+                                                                showTen(true);
+                                                                showFifteen(false);
+                                                        }}
+                                                        className="far fa-arrow-alt-circle-left last"
+                                                ></i>
+
+                                                {beverages ? (
+                                                        <div style={{ backgroundColor: 'black', textAlign: "center", position: 'absolute', bottom: '115px', left: '380px' }}>
+                                                                {beverages.slice(10, 15).map(result =>
+                                                                        <li
+                                                                                data-aos="fade-right"
+                                                                                data-aos-easing="ease-in-out-back"
+                                                                                data-aos-once="false"
+                                                                                data-aos-anchor-placement="top-bottom" class='show' key={result.id}
+                                                                        >
+                                                                                <div className="card" >
+                                                                                        <div className="flex-container">
+                                                                                                <img class="card-img-top" src={result.strDrinkThumb} alt="Card image cap"></img>
+                                                                                                <h5 className="card-title" id="drink"
+                                                                                                        onClick={handleButtonSubmit}
+                                                                                                >
+                                                                                                        <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
+                                                                                                </h5>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </li>
+                                                                )
+                                                                }
+                                                                {/* <i 
+                                                                        onClick={() => {
+                                                                                showFive(false);
+                                                                                showTen(true)
+                                                                                        ;
+                                                                        }}
+                                                                        class="far fa-arrow-alt-circle-right"
+                                                                ></i> */}
+                                                        </div>
+                                                ) : (
+                                                                <h1 id="hide" style={{ color: 'red', textAlign: 'center' }}>
+                                                                        Sorry, we can't make a drink with that
+                                                                </h1>
+                                                        )}
+                                        
+                                        </div> : null
+                                }
+                                
                         </div>
 
                         <div style={{ backgroundColor: "black" }}>
