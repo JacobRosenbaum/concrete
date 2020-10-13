@@ -62,7 +62,7 @@ function Home() {
                                 {five ?
                                         <div>
                                                 {beverages ? (
-                                                        <div style={{ backgroundColor: 'black', textAlign: "center", position: 'absolute', bottom: '90px', left: '380px' }}>
+                                                        <div className = "drinks" >
                                                                 {beverages.slice(0, 5).map(result =>
                                                                         <li
                                                                                 data-aos="fade-left"
@@ -109,7 +109,7 @@ function Home() {
                                                 ></i>
 
                                                 {beverages ? (
-                                                        <div style={{ backgroundColor: 'black', textAlign: "center", position: 'absolute', bottom: '115px', left: '380px' }}>
+                                                        <div className = "drinks" >
                                                                 {beverages.slice(5, 10).map(result =>
                                                                         <li
                                                                                 data-aos="fade-right"
@@ -158,7 +158,7 @@ function Home() {
                                                 ></i>
 
                                                 {beverages ? (
-                                                        <div style={{ backgroundColor: 'black', textAlign: "center", position: 'absolute', bottom: '115px', left: '380px' }}>
+                                                        <div className = "drinks">
                                                                 {beverages.slice(10, 15).map(result =>
                                                                         <li
                                                                                 data-aos="fade-right"
