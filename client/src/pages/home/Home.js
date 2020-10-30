@@ -24,7 +24,7 @@ function Home() {
         const handleButtonSubmit = e => {
                 console.log(drink)
                 e.preventDefault();
-                API.getDrink(drink)
+                API.saveDrink(drink)
                         .then(res => {
                                 setDrink(res.data.drinks.strDrink);
                                 console.log(res.data.drinks.strDrink);

@@ -3,8 +3,8 @@ body {
     background-image: url("../../assets/images/bar.jpg");
     background-size: cover;
     font-family: 'Satisfy', cursive;
-    background-color: black;
-    opacity: .7;
+    background-color: black !important;
+    opacity: .85;
 }
 
 #title {
@@ -16,15 +16,17 @@ body {
 
 .jumbotron {
     text-align: center;
-    background-color: black;
+    background-color: black !important;
     color: red;
-    font-size: 30px
+    font-size: 30px;
+    opacity: .9 !important;
 }
 
 .drinks {
-    background-color: black;
+    background-color: black !important;
+    opacity: 1 !important;
     text-align: center;
-    position: relative;
+    position: absolute;
     bottom: 90px;
     left: 380px
 }
@@ -74,11 +76,16 @@ li a {
     opacity: 1 !important;
 }
 
+.card:hover{
+    cursor: pointer;
+    zoom: 101%
+}
+
 .next {
     font-size: 80px;
     color: red !important;
     position: relative;
-    top: 80px
+    top: 60px
 }
 
 .next:hover {
