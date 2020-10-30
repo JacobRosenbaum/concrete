@@ -74,7 +74,9 @@ function Home() {
                                                                                         <div className="flex-container">
                                                                                                 <img class="card-img-top" src={result.strDrinkThumb} alt="Card image cap"></img>
                                                                                                 <h5 className="card-title" id="drink"
-                                                                                                        onClick={handleButtonSubmit}
+                                                                                                        onClick={() => handleButtonSubmit({
+                                                                                                                id: result.id, 
+                                                                                                        })}
                                                                                                 >
                                                                                                         <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
                                                                                                 </h5>
