@@ -1,13 +1,23 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const BookSchema = new Schema({
-  title: String,
-  author: String,
-  description: String,
+const DrinkSchema = new Schema({
+  name: String,
   image: String,
-  link: String
+  instructions: String,
+  ingredient1: String,
+  ingredient2: String,
+  ingredient3: String,
+  ingredient4: String,
+  ingredient5: String,
+  ingredient6: String,
+  ingredient7: String,
+  ingredient8: String,
+  ingredient9: String,
+  ingredient10: String,
+  ingredient11: String,
+  ingredient12: String,
 })
 
-const Book = mongoose.model('booksDB', BookSchema);
+const Cocktail = mongoose.model('drinksDB', DrinkSchema);
 
-module.exports = Book;
+module.exports = Cocktail;

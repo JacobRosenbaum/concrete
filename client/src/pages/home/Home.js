@@ -6,7 +6,7 @@ function Home() {
 
         const [ingredient, setIngredient] = useState();
         const [beverages, setBeverages] = useState();
-        const [drink, setDrink] = useState();
+        const [cocktail, setCocktail] = useState();
         const [five, showFive] = useState(true);
         const [ten, showTen] = useState(false);
         const [fifteen, showFifteen] = useState(false)
@@ -22,14 +22,10 @@ function Home() {
                         .catch(err => console.log(err));
         };
         const handleButtonSubmit = e => {
-                console.log(drink)
-                e.preventDefault();
-                API.saveDrink(drink)
-                        .then(res => {
-                                setDrink(res.data.drinks.strDrink);
-                                console.log(res.data.drinks.strDrink);
-
-                        })
+                
+                console.log(cocktail)
+                API.saveCocktail(cocktail)
+                        
                         .catch(err => console.log(err));
         };
 
@@ -76,7 +72,9 @@ function Home() {
                                                                                                 <h5 className="card-title" id="drink"
                                                                                                         onClick={() => handleButtonSubmit({
                                                                                                                 id: result.id, 
-                                                                                                        })}
+                                                                                                                name: result.strDrink
+                                                                                                        },
+                                                                                                        setCocktail(result.strDrink))}
                                                                                                 >
                                                                                                         <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
                                                                                                 </h5>
