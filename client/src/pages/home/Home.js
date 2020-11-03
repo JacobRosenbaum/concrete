@@ -21,11 +21,9 @@ function Home() {
                         })
                         .catch(err => console.log(err));
         };
-        const handleButtonSubmit = e => {
-                
+        const handleButtonSubmit = () => {
                 console.log(cocktail)
                 API.saveCocktail(cocktail)
-                        
                         .catch(err => console.log(err));
         };
 
@@ -70,11 +68,11 @@ function Home() {
                                                                                         <div className="flex-container">
                                                                                                 <img class="card-img-top" src={result.strDrinkThumb} alt="Card image cap"></img>
                                                                                                 <h5 className="card-title" id="drink"
-                                                                                                        onClick={() => handleButtonSubmit({
+                                                                                                        onClick={() => 
+                                                                                                                handleButtonSubmit({
                                                                                                                 id: result.id, 
                                                                                                                 name: result.strDrink
-                                                                                                        },
-                                                                                                        setCocktail(result.strDrink))}
+                                                                                                        })}
                                                                                                 >
                                                                                                         <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
                                                                                                 </h5>
