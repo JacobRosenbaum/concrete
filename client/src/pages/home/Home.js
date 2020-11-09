@@ -44,7 +44,6 @@ function Home() {
                                                                 onChange={e => setIngredient(e.target.value)}
                                                         >
                                                         </input>
-
                                                         <button
                                                                 style={{ backgroundColor: "red", color: "black", marginLeft: '30px' }}
                                                         >
@@ -71,7 +70,8 @@ function Home() {
                                                                                                         onClick={() => 
                                                                                                                 handleButtonSubmit({
                                                                                                                 id: result.id, 
-                                                                                                                name: result.strDrink
+                                                                                                                name: result.strDrink.strDrinkThumb,
+                                                                                                                image: result.strDrinkThumb
                                                                                                         })}
                                                                                                 >
                                                                                                         <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
