@@ -55,7 +55,7 @@ function Home() {
                                 {five ?
                                         <div>
                                                 {beverages ? (
-                                                        <div className = "drinks" >
+                                                        <div className="drinks" >
                                                                 {beverages.slice(0, 5).map(result =>
                                                                         <li
                                                                                 data-aos="fade-left"
@@ -67,12 +67,12 @@ function Home() {
                                                                                         <div className="flex-container">
                                                                                                 <img class="card-img-top" src={result.strDrinkThumb} alt="Card image cap"></img>
                                                                                                 <h5 className="card-title" id="drink"
-                                                                                                        onClick={() => 
+                                                                                                        onClick={() =>
                                                                                                                 handleButtonSubmit({
-                                                                                                                id: result.id, 
-                                                                                                                name: result.strDrink.strDrinkThumb,
-                                                                                                                image: result.strDrinkThumb
-                                                                                                        })}
+                                                                                                                        id: result.id,
+                                                                                                                        name: result.strDrink.strDrinkThumb,
+                                                                                                                        image: result.strDrinkThumb
+                                                                                                                })}
                                                                                                 >
                                                                                                         <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
                                                                                                 </h5>
@@ -98,7 +98,7 @@ function Home() {
                                 }
                                 {ten ?
                                         <div>
-                                                <i 
+                                                <i
                                                         onClick={() => {
                                                                 showFive(true);
                                                                 showTen(false);
@@ -107,7 +107,7 @@ function Home() {
                                                 ></i>
 
                                                 {beverages ? (
-                                                        <div className = "drinks" >
+                                                        <div className="drinks" >
                                                                 {beverages.slice(5, 10).map(result =>
                                                                         <li
                                                                                 data-aos="fade-right"
@@ -142,12 +142,12 @@ function Home() {
                                                                         Sorry, we can't make a drink with that
                                                                 </h1>
                                                         )}
-                                        
+
                                         </div> : null
                                 }
                                 {fifteen ?
                                         <div>
-                                                <i 
+                                                <i
                                                         onClick={() => {
                                                                 showTen(true);
                                                                 showFifteen(false);
@@ -156,7 +156,7 @@ function Home() {
                                                 ></i>
 
                                                 {beverages ? (
-                                                        <div className = "drinks">
+                                                        <div className="drinks">
                                                                 {beverages.slice(10, 15).map(result =>
                                                                         <li
                                                                                 data-aos="fade-right"
@@ -191,10 +191,10 @@ function Home() {
                                                                         Sorry, we can't make a drink with that
                                                                 </h1>
                                                         )}
-                                        
+
                                         </div> : null
                                 }
-                                
+
                         </div>
 
                         <div style={{ backgroundColor: "black" }}>
