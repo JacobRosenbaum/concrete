@@ -9,7 +9,8 @@ function Home() {
         const [cocktail, setCocktail] = useState();
         const [five, showFive] = useState(true);
         const [ten, showTen] = useState(false);
-        const [fifteen, showFifteen] = useState(false)
+        const [fifteen, showFifteen] = useState(false);
+        const [twenty, showTwenty] = useState(false)
 
         const handleFormSubmit = e => {
                 console.log(ingredient)
@@ -192,6 +193,50 @@ function Home() {
                                                                 </h1>
                                                         )}
 
+                                        </div> : null
+                                }
+                                {twenty ?
+                                        <div>
+                                                {beverages ? (
+                                                        <div className="drinks" >
+                                                                {beverages.slice(15, 20).map(result =>
+                                                                        <li
+                                                                                data-aos="fade-left"
+                                                                                data-aos-easing="ease-in-out-back"
+                                                                                data-aos-once="false"
+                                                                                data-aos-anchor-placement="top-bottom" class='show' key={result.id}
+                                                                        >
+                                                                                <div className="card" >
+                                                                                        <div className="flex-container">
+                                                                                                <img class="card-img-top" src={result.strDrinkThumb} alt="Card image cap"></img>
+                                                                                                <h5 className="card-title" id="drink"
+                                                                                                        onClick={() =>
+                                                                                                                handleButtonSubmit({
+                                                                                                                        id: result.id,
+                                                                                                                        name: result.strDrink.strDrinkThumb,
+                                                                                                                        image: result.strDrinkThumb
+                                                                                                                })}
+                                                                                                >
+                                                                                                        <b style={{ fontSize: '20px' }}> {result.strDrink}</b>
+                                                                                                </h5>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </li>
+                                                                )
+                                                                }
+                                                                <i
+                                                                        onClick={() => {
+                                                                                showFive(false);
+                                                                                showTen(true);
+                                                                        }}
+                                                                        className="far fa-arrow-alt-circle-right next"
+                                                                ></i>
+                                                        </div>
+                                                ) : (
+                                                                <h1 id="hide" style={{ color: 'red', textAlign: 'center' }}>
+                                                                        Sorry, we can't make a drink with that
+                                                                </h1>
+                                                        )}
                                         </div> : null
                                 }
 
